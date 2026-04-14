@@ -1,0 +1,29 @@
+# Ambiente virtual
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Variáveis de ambiente (nunca commitar)
+.env
+
+# Cache pytest e ruff
+.pytest_cache/
+.ruff_cache/
+
+# Build Python
+dist/
+build/
+*.egg-info/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Agents - Claude
+.claude/
+.agents/
+.skills-lock.json
