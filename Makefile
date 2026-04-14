@@ -2,11 +2,11 @@
 
 # Instala dependências no ambiente virtual uv
 install:
-	uv pip install -r requirements.txt
+	uv pip install -e .
 
 # Sobe o servidor local com hot-reload
 dev:
-	.venv/bin/uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+	.venv/bin/uvicorn app.__main__:app --reload --host 0.0.0.0 --port 8000
 
 # Roda toda a suite de testes
 test:

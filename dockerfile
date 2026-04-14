@@ -6,8 +6,9 @@ FROM python:3.11-slim AS deps
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY pyproject.toml .
+RUN mkdir -p app && touch app/__init__.py
+RUN pip install --no-cache-dir .
 
 
 FROM python:3.11-slim AS final
@@ -23,4 +24,4 @@ COPY app/ ./app/
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.__main__:app", "--host", "0.0.0.0", "--port", "8000"]

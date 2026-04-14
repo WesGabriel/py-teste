@@ -1,7 +1,7 @@
 import logging
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
-
+import uvicorn
 import httpx
 from fastapi import FastAPI
 
@@ -60,3 +60,6 @@ app.include_router(router)
 @app.get("/health", tags=["meta"])
 async def health() -> dict[str, str]:
     return {"status": "ok"}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
